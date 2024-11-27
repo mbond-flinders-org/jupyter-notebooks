@@ -227,7 +227,7 @@
       
       
       
-      <li><a href="https://hub.ovh2.mybinder.org/user/mbond-flinders--pyter-notebooks-nq1m3ysn/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/2_making_decisions/2_making_decisions_solutions.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/mbond-flinders-org/jupyter-notebooks.git/HEAD/v2/gh/executablebooks/jupyter-book/master?urlpath=lab/tree/docs/2_making_decisions/2_making_decisions_solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -245,7 +245,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/docs/2_making_decisions/2_making_decisions_solutions.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/mbond-flinders-org/jupyter-notebooks/blob/main/mynotebook/github/executablebooks/jupyter-book/blob/master/docs/2_making_decisions/2_making_decisions_solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -258,6 +258,24 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
 </li>
       
   </ul>
@@ -599,7 +617,7 @@ BMI is calculated as your weight W (in kilograms) divided by the square of your 
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "executablebooks/jupyter-book",
             ref: "master",
         },
         codeMirrorConfig: {

@@ -33,6 +33,7 @@ html:
 
 launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic"
-  colab_url: "https://colab.research.google.com"
+  thebe: true
+  colab_url: "https://colab.research.google.com/github/mbond-flinders-org/jupyter-notebooks/blob/main/mynotebook/"
   # colab_url: "https://deepnote.com"
-  binderhub_url: "https://hub.ovh2.mybinder.org/user/mbond-flinders--pyter-notebooks-nq1m3ysn/"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  binderhub_url: "https://mybinder.org/v2/gh/mbond-flinders-org/jupyter-notebooks.git/HEAD"  # The URL for your BinderHub (e.g., https://mybinder.org)
