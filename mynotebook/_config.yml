@@ -34,4 +34,5 @@ html:
 launch_buttons:
   notebook_interface: "jupyterlab"  # or "classic"
   colab_url: "https://colab.research.google.com"
-  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  # colab_url: "https://deepnote.com"
+  binderhub_url: "https://hub.ovh2.mybinder.org/user/mbond-flinders--pyter-notebooks-nq1m3ysn/"  # The URL for your BinderHub (e.g., https://mybinder.org)
