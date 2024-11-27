@@ -1,0 +1,922 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Making decisions &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2_making_decisions/2_making_decisions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Introducing Python - solutions to exercises" href="../1_intro_to_python/1_intro_to_Python_solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_python/1_intro_to_Python_solutions.html">Introducing Python - solutions to exercises</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Making decisions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F2_making_decisions/2_making_decisions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/2_making_decisions/2_making_decisions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making decisions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-parity-of-numbers">Checking parity of numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-colour-of-chessboard-squares">Finding colour of chessboard squares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-letter-grade-to-points">Converting letter grade to points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-quadratic-equations">Solving quadratic equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">Tell me more - potentially boring but very usefull stuff to know - do not skip!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logic">Boolean logic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-body-mass-index-bmi">Calculate Body Mass Index (BMI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-days-in-the-month">How many days in the month?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-it-the-snake-year-or-the-dragon-one">Is it the snake year, or the dragon one?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="making-decisions">
+<h1>Making decisions<a class="headerlink" href="#making-decisions" title="Link to this heading">#</a></h1>
+<p>Author: <span class="math notranslate nohighlight">\(\color{blue}{\text{Mariusz Bajger, Flinders University}}\)</span><br>
+Topic: <span class="math notranslate nohighlight">\(\color{blue}{\text{ENGR1721/8800 Engineering Programming}}\)</span></p>
+<p>Online resources: <br></p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.python.org/">Python official website</a><br>
+<a class="reference external" href="https://jupyter.org/">Jupyter - a next-generation notebook interface</a><br>
+<a class="reference external" href="https://docs.python.org/3/library/functions.html">Python built-in functions</a><br>
+<a class="reference external" href="https://numpy.org/">NumPy - Numerical Python Library</a><br>
+<a class="reference external" href="https://docs.python.org/3/library/math.html">math - mathematical functions library</a><br></p>
+</div></blockquote>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Making-decisions" data-toc-modified-id="Making-decisions-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Making decisions</a></span><ul class="toc-item"><li><span><a href="#Checking-parity-of-numbers" data-toc-modified-id="Checking-parity-of-numbers-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Checking parity of numbers</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Finding-colour-of-chessboard-squares" data-toc-modified-id="Finding-colour-of-chessboard-squares-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Finding colour of chessboard squares</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Converting-letter-grade-to-points" data-toc-modified-id="Converting-letter-grade-to-points-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Converting letter grade to points</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Solving-quadratic-equations" data-toc-modified-id="Solving-quadratic-equations-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>Solving quadratic equations</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Tell-me-more---potentially-boring-but-very-usefull-stuff-to-know---do-not-skip!" data-toc-modified-id="Tell-me-more---potentially-boring-but-very-usefull-stuff-to-know---do-not-skip!-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>Tell me more - potentially boring but very usefull stuff to know - do not skip!</a></span><ul class="toc-item"><li><span><a href="#Boolean-logic" data-toc-modified-id="Boolean-logic-2.5.1"><span class="toc-item-num">2.5.1&nbsp;&nbsp;</span>Boolean logic</a></span></li></ul></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>Exercises</a></span><ul class="toc-item"><li><span><a href="#Calculate-Body-Mass-Index-(BMI)" data-toc-modified-id="Calculate-Body-Mass-Index-(BMI)-2.6.1"><span class="toc-item-num">2.6.1&nbsp;&nbsp;</span>Calculate Body Mass Index (BMI)</a></span></li><li><span><a href="#How-many-days-in-the-month?" data-toc-modified-id="How-many-days-in-the-month?-2.6.2"><span class="toc-item-num">2.6.2&nbsp;&nbsp;</span>How many days in the month?</a></span></li><li><span><a href="#Is-it-the-snake-year,-or-the-dragon-one?" data-toc-modified-id="Is-it-the-snake-year,-or-the-dragon-one?-2.6.3"><span class="toc-item-num">2.6.3&nbsp;&nbsp;</span>Is it the snake year, or the dragon one?</a></span></li></ul></li></ul></li></ul></div><section id="checking-parity-of-numbers">
+<h2>Checking parity of numbers<a class="headerlink" href="#checking-parity-of-numbers" title="Link to this heading">#</a></h2>
+<p>Let us write a program that reads an integer from  the user, checks whether the number is even or odd, and informs the user about the outcome.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter an integer: &#39;</span><span class="p">))</span>
+<span class="c1"># we use so called conditional statement (or branching) to direct program execution </span>
+<span class="c1"># here the execution flow is based on truth value of a logical condition</span>
+<span class="c1"># if the condition is true</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s1">&#39;is even.&#39;</span><span class="p">)</span>
+<span class="c1"># otherwise, when the condition fails</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s1">&#39;is odd.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter an integer: &#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># we use so called conditional statement (or branching) to direct program execution </span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># here the execution flow is based on truth value of a logical condition</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># if the condition is true</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/jupyter-notebooks-bcv3Fqos-py3.12/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The flowchart illustrates the logic behind the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement.</p></li>
+</ul>
+<!-- \centering ![diagram](./images/if_else_flowchart.png){width=0.01\textwidth}\par -->
+<img src="./images/if_else_flowchart.png" width="40%"/>
+* Recall that indents in code are critical! (Keep at 4 spaces, this is the most often used setting.)
+* The operator `%` is called **modulus** or **remainder** and it returns `0` for even number and `1` for odd numbers because dividing an even number by 2 always yields a remainder of 0 while dividing an odd number by 2 results in a remainder of 1.
+* Do not confuse `%` with the formatting placeholder (look at the context to recognise the meaning of `%` in a given statement).
+* More examples of using modulus: `4 % 3 = 1`, `10 % 5 = 0`, `4 % 5 = 4` etc.
+* An `if` statement must include a logical condition like `number % 2 == 0` yielding `True` or `False`.
+* Statements with `if` are called <em>conditional statements</em>.
+* If the condition resolves to `True`, the body of the `if` statement is executed, otherwise (when it evaluates to `False`), the body of the `if` statement is skipped and the execution continues at the first line after the body of `if` (note that indents indicate start and end of the body.)
+* The logical condition may include comparison operator `==`, which reads <em>equals to</em> (Do not confuse it with an assignment statement!)
+* You may also use other comparison operators, well-known from school, like: `>, <, >=, <=` or not equal `!=` operator.<p>Now, we convert the solution to a function so that we can easily reuse it later. Name the function  <code class="docutils literal notranslate"><span class="pre">check_number</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_number</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s1">&#39;is even.&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s1">&#39;is odd.&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Test the new function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_number</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21 is odd.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="finding-colour-of-chessboard-squares">
+<h2>Finding colour of chessboard squares<a class="headerlink" href="#finding-colour-of-chessboard-squares" title="Link to this heading">#</a></h2>
+<p>Write a program that reads a position from the user, like <code class="docutils literal notranslate"><span class="pre">a4</span></code> or <code class="docutils literal notranslate"><span class="pre">f6</span></code> and reports the colour of the corresponding chessboard square. A picture of chessboard is shown below so that you can check your program correctness.</p>
+<!-- \centering ![](images/chess_board.png){width=0.01\textwidth height=0.01\textwidth}\par -->
+<img src="./images/chess_board.png" width="20%" height="20%"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_square_colour</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
+    <span class="c1"># recall from 1.4.4 the technique of retrieving characters from a string</span>
+    <span class="c1"># get the first character from &#39;position&#39; string</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+    <span class="c1"># get the second character from &#39;position&#39; string and convert it to an integer</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="c1"># build a conditional statement combining several logical conditions</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span> <span class="ow">or</span> <span class="n">column</span> <span class="o">==</span> <span class="s1">&#39;c&#39;</span> <span class="ow">or</span> <span class="n">column</span><span class="o">==</span><span class="s1">&#39;e&#39;</span> <span class="ow">or</span> <span class="n">column</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">colour</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">colour</span> <span class="o">==</span> <span class="s1">&#39;black&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">colour</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">colour</span> <span class="o">==</span> <span class="s1">&#39;white&#39;</span>
+            
+    <span class="c1"># display the answer        </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">colour</span>)    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_square_colour</span><span class="p">(</span><span class="s1">&#39;g8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The square is white
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>One can put <code class="docutils literal notranslate"><span class="pre">if</span></code> inside of <code class="docutils literal notranslate"><span class="pre">if</span></code>; we call it <em>nested</em> <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p></li>
+<li><p>There is no limitation on number of nested statements but rarely more than three levels of nesting are used.</p></li>
+<li><p>Nesting complicates the code, use with caution!</p></li>
+<li><p>The logical condition in <code class="docutils literal notranslate"><span class="pre">if</span></code> can be quite sophisticated and may include several comparisons.</p></li>
+<li><p>Python understands <code class="docutils literal notranslate"><span class="pre">or</span></code>, like humans do (similarly, <code class="docutils literal notranslate"><span class="pre">and</span></code> is also a built-in language keyword)</p></li>
+</ul>
+</section>
+</section>
+<section id="converting-letter-grade-to-points">
+<h2>Converting letter grade to points<a class="headerlink" href="#converting-letter-grade-to-points" title="Link to this heading">#</a></h2>
+<p>Using the conversion table below write a program that takes a letter grade from the user and displays the equivalent number of grade points. It should also generate an error message if the user enters an invalid letter grade.</p>
+<!-- \centering ![table](images/convertion_table.png){width=.25\textwidth}\centering -->
+<img src="./images/convertion_table.png" width="20%"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grade_converter</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+    <span class="c1"># use branching to determine the outcome</span>
+    <span class="k">if</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;A+&#39;</span><span class="ow">or</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">4.0</span>
+    <span class="k">elif</span>  <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;A-&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">3.7</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;B+&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">3.3</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">3.0</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;B-&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">2.7</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;C+&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">2.3</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;C-&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">1.7</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;D+&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">1.3</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># this is executed when all above fails (no grade is determined)  </span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        
+    <span class="c1"># check whether the grade was determined   </span>
+    <span class="k">if</span> <span class="n">points</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Grade </span><span class="si">%s</span><span class="s1"> equals to </span><span class="si">%.1f</span><span class="s1"> points&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">grade</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Invalid input &#39;</span> <span class="o">+</span> <span class="n">grade</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_converter</span><span class="p">(</span><span class="s1">&#39;A+&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grade A+ equals to 4.0 points
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_converter</span><span class="p">(</span><span class="s1">&#39;C-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grade C- equals to 1.7 points
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade_converter</span><span class="p">(</span><span class="s1">&#39;A++&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Invalid input A++
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>Notes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> statement is used to perform exactly one of several alternative actions.</p></li>
+<li><p>You may include as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> as necessary, followed by an <code class="docutils literal notranslate"><span class="pre">else</span></code> part.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> and all <code class="docutils literal notranslate"><span class="pre">elif</span></code> part must include a condition that evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">if</span></code> part’s condition evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code> then its body is skipped and the condition on the the first <code class="docutils literal notranslate"><span class="pre">elif</span></code> part is evaluated, if it evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> then the body of that part is executed, otherwise it skipps to next <code class="docutils literal notranslate"><span class="pre">elif</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code> part.</p></li>
+<li><p>Note how <code class="docutils literal notranslate"><span class="pre">message</span></code> is created, based on <code class="docutils literal notranslate"><span class="pre">points</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="solving-quadratic-equations">
+<h2>Solving quadratic equations<a class="headerlink" href="#solving-quadratic-equations" title="Link to this heading">#</a></h2>
+<p>A quadratic equation has the form <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span>, where <span class="math notranslate nohighlight">\(a, b, c\)</span> are constants, and <span class="math notranslate nohighlight">\(a\)</span> is not zero.
+By solving it, we mean finding the roots, that is, identifying all values of <span class="math notranslate nohighlight">\(x\)</span> that satisfy the equation. As you may recall from school, these values can be calculated using the <em>quadratic formula</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+root = \frac{-b\pm\sqrt{b^2-4ac}}{2a} \nonumber
+\]</div>
+<p>The expression under the square root is called <em>discriminant</em> and often indicated using Greek letter delta</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta = b^2 - 4ac \nonumber
+\]</div>
+<p><span class="math notranslate nohighlight">\(\Delta\)</span> is important because it tells us how many roots/solutions (as real numbers) the equation may have. And so, we may have</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta &lt; 0, \text{ no roots,  }\qquad \nonumber
+\Delta = 0, \text{ one root,  }\qquad
+\Delta &gt; 0, \text{ two roots}
+\]</div>
+<p>Write a program that computes the real roots of quadratic equation. Make it user friendly, that is, it should display relevant informative messages about the solutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadratic_solver</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="c1"># calculate the discriminant</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    
+    <span class="c1"># use conditional statement to determine the number of roots</span>
+    <span class="c1"># and print out the answer</span>
+    <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no solution&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">elif</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is one solution: </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">root</span>)
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">root_1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">root_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are two solutions: </span><span class="si">%.1f</span><span class="s1"> </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">root_1</span><span class="p">,</span> <span class="n">root_2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us solve the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 + 2x + 3 = 0
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no solution
+</pre></div>
+</div>
+</div>
+</div>
+<p>And one more,</p>
+<div class="math notranslate nohighlight">
+\[
+4x^2 + 8x + 3 = 0
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quadratic_solver</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are two solutions: -1.5 -0.5
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Notes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>To use <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> we need to import it from the <code class="docutils literal notranslate"><span class="pre">math</span></code> library (we could include the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement inside the <code class="docutils literal notranslate"><span class="pre">quadratic_solver</span></code> definition instead).</p></li>
+<li><p>Observe that since we specifically imported just <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> (not the whole <code class="docutils literal notranslate"><span class="pre">math</span></code> library) we do not need to call it through the library name using the dot syntax like <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code>.</p></li>
+<li><p>alternatively, we could use the fractional power <code class="docutils literal notranslate"><span class="pre">delta**0.5</span></code> instead or <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function.</p></li>
+</ul>
+</section>
+</section>
+<section id="tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">
+<h2>Tell me more - potentially boring but very usefull stuff to know - do not skip!<a class="headerlink" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip" title="Link to this heading">#</a></h2>
+<section id="boolean-logic">
+<h3>Boolean logic<a class="headerlink" href="#boolean-logic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A <em>Boolean expression</em> is an expression that evaluates to either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> Python keywords.</p></li>
+<li><p>Conditional statements always include Boolean expressions.</p></li>
+<li><p>Python provides three Boolean operators: <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p></li>
+<li><p>Goes without saying that we can combine all of them in a single Boolean expression.</p></li>
+<li><p>The behaviour/truth values of the simplest Boolean expressions can be demonstrated by using <em>truth tables</em> like the ones below.</p></li>
+</ul>
+<table><tr>
+<td><img src="./images/truth_table_not.png" width="16%" style = "width: 200px"/>
+<td><img src="./images/truth_table_and.png" width="16%" style = "width: 200px"/>
+<td><img src="./images/truth_table_or.png" width="16%" style = "width: 200px"/>
+</tr></table></section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>All exercises below are based on this and previous notebooks material (no need to consult additional sources to complete them) and are intended to reinforce what you have learned so far. It is strongly recommended that you attempt all of them.</p>
+<section id="calculate-body-mass-index-bmi">
+<h3>Calculate Body Mass Index (BMI)<a class="headerlink" href="#calculate-body-mass-index-bmi" title="Link to this heading">#</a></h3>
+<p>Write a Python function named <code class="docutils literal notranslate"><span class="pre">find_BMI</span></code> to calculate body mass index and display the grade from the following grades:<BR></p>
+<blockquote>
+<div><p>Underweight:  BMI &lt; 18.5 <br>
+Normal weight:  18.5 &lt;= BMI &lt; 25.0 <br>
+Overweight:  25.0 &lt;= BMI &lt; 30.0 <br>
+Obesity (class 1): 30.0 &lt;= BMI &lt; 35<br>
+Obesity (class 2): 35.0 &lt;= BMI<br></p>
+</div></blockquote>
+<p>Where weight is taken in kilograms and height in meters.
+BMI is calculated as your weight W (in kilograms) divided by the square of your height H (in metres) or <br></p>
+<div class="math notranslate nohighlight">
+\[
+    BMI = \frac{W}{H^2}.
+\]</div>
+<p>Output example (note the function arguments)<br></p>
+<!-- \centering ![](./images/ex_2.1.1_out.png){width=0.3\textwidth}\centering -->
+<img align = "left" src="./images/ex_2.1.1_out.png" width="30%"></section>
+<section id="how-many-days-in-the-month">
+<h3>How many days in the month?<a class="headerlink" href="#how-many-days-in-the-month" title="Link to this heading">#</a></h3>
+<p>As we know a month may have as few as 28 days, and as many as 31. Write a function named <code class="docutils literal notranslate"><span class="pre">days</span></code> that takes month name, as a parameter, and prints out the number of days in that month. For February, display “28 or 29 days”, so that leap year is included.</p>
+<p>Output example (note the function arguments)<br></p>
+<!-- \centering ![](./images/ex_2.1.2_out.png){width=0.2\textwidth}\centering -->
+<img align = "left" src="./images/ex_2.1.2_out.png" width="25%"></section>
+<section id="is-it-the-snake-year-or-the-dragon-one">
+<h3>Is it the snake year, or the dragon one?<a class="headerlink" href="#is-it-the-snake-year-or-the-dragon-one" title="Link to this heading">#</a></h3>
+<p>The Chinese zodiac matches animals with years in a 12 year cycle. One such cycle is shown in the table below.</p>
+<img src="./images/zodiac_china.png" width="14%"/>
+<p>The pattern repeats, and so 2012 was again year of the dragon, then 2013 being the year of the snake etc. Write a function that reads the year from the user (or takes it as a parameter, whatever you prefer) and displays the animal associated with that year. What year would be 2050 or 2099?</p>
+<p>Output example (note that the function takes no arguments)<br></p>
+<!-- \centering ![](./images/ex_2.1.3_out.png){width=.3\textwidth}\centering -->
+<img align = "left" src="./images/ex_2.1.3_out.png" width="25%"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./2_making_decisions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../1_intro_to_python/1_intro_to_Python_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducing Python - solutions to exercises</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-parity-of-numbers">Checking parity of numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-colour-of-chessboard-squares">Finding colour of chessboard squares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-letter-grade-to-points">Converting letter grade to points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-quadratic-equations">Solving quadratic equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">Tell me more - potentially boring but very usefull stuff to know - do not skip!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logic">Boolean logic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-body-mass-index-bmi">Calculate Body Mass Index (BMI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-days-in-the-month">How many days in the month?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-it-the-snake-year-or-the-dragon-one">Is it the snake year, or the dragon one?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

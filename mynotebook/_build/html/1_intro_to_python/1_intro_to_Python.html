@@ -1,0 +1,1623 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducing Python &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_intro_to_python/1_intro_to_Python';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_intro_to_Python_solutions.html">Introducing Python - solutions to exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_making_decisions/2_making_decisions.html">Making decisions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_intro_to_python/1_intro_to_Python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_intro_to_python/1_intro_to_Python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducing Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-messages-on-screen">Displaying messages on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-hello-on-screen">Display ‘Hello’ on screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-your-name-on-screen">Display your name on screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-with-functions">Display with functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-a-function-to-display-your-name-and-surname-on-screen">Write a function to display your name and surname on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-formatting-numbers">Displaying/formatting numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-concatenation-with-operator">Strings concatenation with <code class="docutils literal notranslate"><span class="pre">+</span></code> operator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-return-in-functions-assignment-statements-and-variables">More on <code class="docutils literal notranslate"><span class="pre">return</span></code> in functions, assignment statements and variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-formulas">Working with formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-chill">Wind chill</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity">Heat capacity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-libraries-numpy-math">Using Python libraries: <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen">Write a function to calculate cube of a random integer and print the integer and its cube on screen.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">Tell me more - potentially boring but very usefull stuff to know - do not skip!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-vs-computer-program">Algorithm vs computer program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-values">Formatting values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">Calling functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-on-screen">Printing on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-flexibility">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-of-a-rectangle">Finding the area of a rectangle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-more-flexibility">Adding more flexibility</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#even-more-flexibility">Even more flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#free-fall">Free fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic">Basic Arithmetic</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introducing-python">
+<h1>Introducing Python<a class="headerlink" href="#introducing-python" title="Link to this heading">#</a></h1>
+<p>Author: <span class="math notranslate nohighlight">\(\color{blue}{\text{Mariusz Bajger, Flinders University}}\)</span><br>
+Topic: <span class="math notranslate nohighlight">\(\color{blue}{\text{ENGR1721/8800 Engineering Programming}}\)</span></p>
+<p>Online resources: <br></p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.python.org/">Python official website</a><br>
+<a class="reference external" href="https://jupyter.org/">Jupyter - a next-generation notebook interface</a><br>
+<a class="reference external" href="https://docs.python.org/3/library/functions.html">Python built-in functions</a><br>
+<a class="reference external" href="https://numpy.org/">NumPy - Numerical Python Library</a><br>
+<a class="reference external" href="https://docs.python.org/3/library/math.html">math - mathematical functions library</a><br></p>
+</div></blockquote>
+<p>Books: <br></p>
+<blockquote>
+<div><p><em>A Beginners Guide to Python 3 Programming, J. Hunt, Springer, 2019.</em> <br>
+<em>Introduction to Python for Engineers and Scientists, S. Nagar, Springer, 2018.</em> <br>
+<em>The Python Workbook, B. Stephenson, 2nd ed., Springer, 2019.</em><br>
+<em>A Primer on Scientific Programming with Python, H.P. Langtangen, 5th ed., Springer, 2016.</em> <br>
+<em>Numerical Python: Scientific Computing and Data Science Applications with
+Numpy, SciPy and Matplotlib, R. Johansson, Apress, 2019.</em></p>
+</div></blockquote>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Introducing-Python" data-toc-modified-id="Introducing-Python-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introducing Python</a></span><ul class="toc-item"><li><span><a href="#Displaying-messages-on-screen" data-toc-modified-id="Displaying-messages-on-screen-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Displaying messages on screen</a></span><ul class="toc-item"><li><span><a href="#Display-'Hello'-on-screen" data-toc-modified-id="Display-'Hello'-on-screen-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>Display 'Hello' on screen</a></span></li><li><span><a href="#Display-your-name-on-screen" data-toc-modified-id="Display-your-name-on-screen-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Display your name on screen</a></span></li><li><span><a href="#Display-with-functions" data-toc-modified-id="Display-with-functions-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>Display with functions</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.1.3.1"><span class="toc-item-num">1.1.3.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Write-a-function-to-display-your-name-and-surname-on-screen" data-toc-modified-id="Write-a-function-to-display-your-name-and-surname-on-screen-1.1.4"><span class="toc-item-num">1.1.4&nbsp;&nbsp;</span>Write a function to display your name and surname on screen</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.1.4.1"><span class="toc-item-num">1.1.4.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Displaying/formatting-numbers" data-toc-modified-id="Displaying/formatting-numbers-1.1.5"><span class="toc-item-num">1.1.5&nbsp;&nbsp;</span>Displaying/formatting numbers</a></span></li><li><span><a href="#Strings-concatenation-with-+-operator" data-toc-modified-id="Strings-concatenation-with-+-operator-1.1.6"><span class="toc-item-num">1.1.6&nbsp;&nbsp;</span>Strings concatenation with <code>+</code> operator</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.1.6.1"><span class="toc-item-num">1.1.6.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#More-on-return-in-functions,-assignment-statements-and-variables" data-toc-modified-id="More-on-return-in-functions,-assignment-statements-and-variables-1.1.7"><span class="toc-item-num">1.1.7&nbsp;&nbsp;</span>More on <code>return</code> in functions, assignment statements and variables</a></span></li></ul></li><li><span><a href="#Working-with-formulas" data-toc-modified-id="Working-with-formulas-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Working with formulas</a></span><ul class="toc-item"><li><span><a href="#Wind-chill" data-toc-modified-id="Wind-chill-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Wind chill</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.2.1.1"><span class="toc-item-num">1.2.1.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li><li><span><a href="#Heat-capacity" data-toc-modified-id="Heat-capacity-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Heat capacity</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.2.2.1"><span class="toc-item-num">1.2.2.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li></ul></li><li><span><a href="#Using-Python-libraries:-NumPy,-math" data-toc-modified-id="Using-Python-libraries:-NumPy,-math-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Using Python libraries: <code>NumPy</code>, <code>math</code></a></span><ul class="toc-item"><li><span><a href="#Write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen." data-toc-modified-id="Write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen.-1.3.1"><span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>Write a function to calculate cube of a random integer and print the integer and its cube on screen.</a></span><ul class="toc-item"><li><span><a href="#Notes" data-toc-modified-id="Notes-1.3.1.1"><span class="toc-item-num">1.3.1.1&nbsp;&nbsp;</span>Notes</a></span></li></ul></li></ul></li><li><span><a href="#Tell-me-more---potentially-boring-but-very-usefull-stuff-to-know---do-not-skip!" data-toc-modified-id="Tell-me-more---potentially-boring-but-very-usefull-stuff-to-know---do-not-skip!-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Tell me more - potentially boring but very usefull stuff to know - do not skip!</a></span><ul class="toc-item"><li><span><a href="#Algorithm-vs-computer-program" data-toc-modified-id="Algorithm-vs-computer-program-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>Algorithm vs computer program</a></span></li><li><span><a href="#Comments" data-toc-modified-id="Comments-1.4.2"><span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>Comments</a></span></li><li><span><a href="#Variables" data-toc-modified-id="Variables-1.4.3"><span class="toc-item-num">1.4.3&nbsp;&nbsp;</span>Variables</a></span></li><li><span><a href="#Strings" data-toc-modified-id="Strings-1.4.4"><span class="toc-item-num">1.4.4&nbsp;&nbsp;</span>Strings</a></span></li><li><span><a href="#Formatting-values" data-toc-modified-id="Formatting-values-1.4.5"><span class="toc-item-num">1.4.5&nbsp;&nbsp;</span>Formatting values</a></span></li><li><span><a href="#Calling-functions" data-toc-modified-id="Calling-functions-1.4.6"><span class="toc-item-num">1.4.6&nbsp;&nbsp;</span>Calling functions</a></span></li></ul></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Exercises</a></span><ul class="toc-item"><li><span><a href="#Printing-on-screen" data-toc-modified-id="Printing-on-screen-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Printing on screen</a></span><ul class="toc-item"><li><span><a href="#Adding-flexibility" data-toc-modified-id="Adding-flexibility-1.5.1.1"><span class="toc-item-num">1.5.1.1&nbsp;&nbsp;</span>Adding flexibility</a></span></li></ul></li><li><span><a href="#Finding-the-area-of-a-rectangle" data-toc-modified-id="Finding-the-area-of-a-rectangle-1.5.2"><span class="toc-item-num">1.5.2&nbsp;&nbsp;</span>Finding the area of a rectangle</a></span><ul class="toc-item"><li><span><a href="#Adding-more-flexibility" data-toc-modified-id="Adding-more-flexibility-1.5.2.1"><span class="toc-item-num">1.5.2.1&nbsp;&nbsp;</span>Adding more flexibility</a></span></li><li><span><a href="#Even-more-flexibility" data-toc-modified-id="Even-more-flexibility-1.5.2.2"><span class="toc-item-num">1.5.2.2&nbsp;&nbsp;</span>Even more flexibility</a></span></li></ul></li><li><span><a href="#Free-fall" data-toc-modified-id="Free-fall-1.5.3"><span class="toc-item-num">1.5.3&nbsp;&nbsp;</span>Free fall</a></span></li><li><span><a href="#Basic-Arithmetic" data-toc-modified-id="Basic-Arithmetic-1.5.4"><span class="toc-item-num">1.5.4&nbsp;&nbsp;</span>Basic Arithmetic</a></span></li></ul></li></ul></li></ul></div><p>Have you ever wanted to:</p>
+<ul class="simple">
+<li><p>calculate the temperature we actually feel when the wind blows in cold weather, or</p></li>
+<li><p>find the cost of boiling the water needed for your cup of morning tee/coffee, or</p></li>
+<li><p>pick up relevant data from a table and draw the graph to quickly discover trends/patterns in the data, or</p></li>
+<li><p>select a number randomly?</p></li>
+</ul>
+<p>If you said yes to any of the above, you will be pleased to find the answers below (and much more …), thanks to Python!</p>
+<section id="displaying-messages-on-screen">
+<h2>Displaying messages on screen<a class="headerlink" href="#displaying-messages-on-screen" title="Link to this heading">#</a></h2>
+<section id="display-hello-on-screen">
+<h3>Display ‘Hello’ on screen<a class="headerlink" href="#display-hello-on-screen" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display a word on screen</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print</span></code> is a built-in Python function (<code class="docutils literal notranslate"><span class="pre">function</span></code> is a named piece of code performing a specific task, for example displaying words on screen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> in front of a line indicates a comment; comments are ignored by Python, they provide optional information helping us to understand the code.</p></li>
+</ul>
+</section>
+<section id="display-your-name-on-screen">
+<h3>Display your name on screen<a class="headerlink" href="#display-your-name-on-screen" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace by your name</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jessica Smith&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jessica Smith
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="display-with-functions">
+<h3>Display with functions<a class="headerlink" href="#display-with-functions" title="Link to this heading">#</a></h3>
+<p>Now, let us define our own function named <code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code> to display messages on screen (note the special keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> and the indent in the function body).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome_msg</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">name</span>) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can call the newly defined function by its name (you must always invoke/call the function to make it working).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welcome_msg</span><span class="p">(</span><span class="s1">&#39;Mariusz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Mariusz
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your turn: call the <code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code> with your own name in place of mine. Write the code below.</p>
+<p>Let us define another function <code class="docutils literal notranslate"><span class="pre">welcome_msg_2</span></code>. (How does it differ from <code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code>?)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome_msg_2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">name</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and call it by name</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welcome_msg_2</span><span class="p">(</span><span class="s1">&#39;Mariusz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello, Mariusz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both calls result in a message being printed on screen but in a slightly different way - can you spot the difference?</p>
+<p>There is quite a bit to explain here! Read the notes below very carefully, looking at the relevant code above. Notes will always be provided to clarify new concepts in notebooks.</p>
+<blockquote>
+<div><p><strong>It is vital for your progress to practice writing code and study systematically. You will not be able to fully understand the material if you skip sections.</strong></p>
+</div></blockquote>
+<section id="notes">
+<h4>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Note the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement included in <code class="docutils literal notranslate"><span class="pre">welcome_msg_2</span></code> but not in <code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code>.</p></li>
+<li><p>By using <code class="docutils literal notranslate"><span class="pre">return</span></code> we keep the ‘returned thing’ - the message here - in memory, for subsequent use; otherwise once displayed the message woud be gone.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> and <code class="docutils literal notranslate"><span class="pre">return</span></code> are special words - Python language <em>keywords</em> (therefore they cannot be reused freely, for example, as your own function names).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code> concludes/ends the function (all lines in the function body placed after <code class="docutils literal notranslate"><span class="pre">return</span></code> would be ignored by Python) but as you can see it is not necessary to include <code class="docutils literal notranslate"><span class="pre">return</span></code> in every function (<code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code> has no <code class="docutils literal notranslate"><span class="pre">return</span></code>)</p></li>
+<li><p>Note the indents in code!</p></li>
+<li><p><strong>Indents, usually 4 spaces, are critical in Python programs and have to be used consistently</strong>.</p></li>
+<li><p>Always give your function a meaningful name (indicative of the function purpose).</p></li>
+<li><p>Call your function by its name.</p></li>
+<li><p>If additional information is needed for the function to perform its task, like a value  for <code class="docutils literal notranslate"><span class="pre">name</span></code>, we provide it using parentheses.</p></li>
+<li><p>Those values inside the parentheses, provided each time the function is called, are called <em>arguments</em>,
+and the <code class="docutils literal notranslate"><span class="pre">name</span></code> in the function definition (which is a placeholder for an argument), is called a <em>parameter</em></p></li>
+</ul>
+<blockquote>
+<div><p>parameter - refers to function definition <br>
+argument - refers to function call</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Parameters are useful when your function needs additional data to perform its task (because they add flexibility to your implementation; you do not neeed to decide immediately - when the function id defined - what argument the function may use later for <code class="docutils literal notranslate"><span class="pre">name</span></code>, it will be sorted out
+when someone calls that function).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">%</span></code> operator allows you to control the output format, here indicated by <code class="docutils literal notranslate"><span class="pre">s</span></code>, for the value of <code class="docutils literal notranslate"><span class="pre">name</span></code> which is a <code class="docutils literal notranslate"><span class="pre">string</span></code>, hence <code class="docutils literal notranslate"><span class="pre">s</span></code> letter.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">%s'</span> <span class="pre">%name</span></code>, the value in <code class="docutils literal notranslate"><span class="pre">name</span></code> is subsituted in <code class="docutils literal notranslate"><span class="pre">%s</span></code>; it must be a string, because <code class="docutils literal notranslate"><span class="pre">s</span></code> stands for a string type.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">string</span></code> object is simply a sequence of characters in single or double quotes, e.g. <code class="docutils literal notranslate"><span class="pre">'Hi123'</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&#64;3f9el&quot;</span></code>.</p></li>
+<li><p>Note that when you use <code class="docutils literal notranslate"><span class="pre">return</span></code> Jupyter displays the output on screen as a string, using single quotes to indicate string type.</p></li>
+<li><p>You may use single or double quotes for strings, whatever you prefer, they are equivalent (interchangeable).
+It is a useful convention when you need a string inside of a string - use single quotes for one and double quotes
+for the other.</p></li>
+<li><p>As you can see functions may call other functions, <code class="docutils literal notranslate"><span class="pre">welcome_msg</span></code> calls the built-in function <code class="docutils literal notranslate"><span class="pre">print</span></code> when it executes.</p></li>
+<li><p>Lines starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> are comments and are ignored by Python interpreter; they are just for program explanation, helping us (or other people) to understand the code.</p></li>
+</ul>
+</section>
+</section>
+<section id="write-a-function-to-display-your-name-and-surname-on-screen">
+<h3>Write a function to display your name and surname on screen<a class="headerlink" href="#write-a-function-to-display-your-name-and-surname-on-screen" title="Link to this heading">#</a></h3>
+<p>You may use <code class="docutils literal notranslate"><span class="pre">return</span></code> or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome_msg_3</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">surname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welcome_msg_3</span><span class="p">(</span><span class="s1">&#39;Mariusz&#39;</span><span class="p">,</span><span class="s1">&#39;Bajger&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello, Mariusz Bajger!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome_msg_4</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">surname</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welcome_msg_4</span><span class="p">(</span><span class="s1">&#39;Clint&#39;</span><span class="p">,</span> <span class="s1">&#39;Eastwood&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Clint Eastwood!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Notes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Functions <code class="docutils literal notranslate"><span class="pre">welcome_msg_3</span></code> and <code class="docutils literal notranslate"><span class="pre">welcome_msg_4</span></code> take two parameters: <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">surname</span></code>.</p></li>
+<li><p>Any (almost, some rules apply) meaningful names composed of letters can be used as parameter names.</p></li>
+<li><p>Observe how multiple values are formatted, passed to <code class="docutils literal notranslate"><span class="pre">%</span></code> operator as a single language structure called <em>tuple</em>: <code class="docutils literal notranslate"><span class="pre">%(a,b,c,d)</span></code> or <code class="docutils literal notranslate"><span class="pre">(12,13,a)</span></code> etc. (More about tuples later, stay tuned …).</p></li>
+<li><p>What if you want to display numbers? Like your age, or height or any quantity on screen in say, two decimal places?</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%d</span></code> for <em>integers</em> like 1, 2, 3 … and their negative counterparts, and <code class="docutils literal notranslate"><span class="pre">%f</span></code> for <em>floating-point</em> numbers like 1.23, or -56.89654 etc.</p></li>
+<li><p>To specify accuracy like 2 decimal digits, use <code class="docutils literal notranslate"><span class="pre">%.2f</span></code>. This will round the number to 2 decimal places. See the next task for examples.</p></li>
+</ul>
+</section>
+</section>
+<section id="displaying-formatting-numbers">
+<h3>Displaying/formatting numbers<a class="headerlink" href="#displaying-formatting-numbers" title="Link to this heading">#</a></h3>
+<p>Write a function to display on screen something like this: ‘Hello, I am <code class="docutils literal notranslate"><span class="pre">your_name</span></code>, 20 years old. My weight is 76.25. I am 1.8 meters tall.’ The weight value should be rounded to two decimal places and the height to 1 decimal place. Use <code class="docutils literal notranslate"><span class="pre">\</span></code> if you need
+to skip to next line when writing your code (long lines are hard to read and should be avoided.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome_msg_5</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, I am </span><span class="si">%s</span><span class="s1">, </span><span class="si">%d</span><span class="s1"> years old. My weight is </span><span class="si">%.2f</span><span class="s1">. </span><span class="se">\</span>
+<span class="s1">I am </span><span class="si">%.1f</span><span class="s1"> meters tall.&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">welcome_msg_5</span><span class="p">(</span><span class="s1">&#39;Mandy&#39;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mf">64.325</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello, I am Mandy, 22 years old. My weight is 64.33. I am 1.6 meters tall.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="strings-concatenation-with-operator">
+<h3>Strings concatenation with <code class="docutils literal notranslate"><span class="pre">+</span></code> operator<a class="headerlink" href="#strings-concatenation-with-operator" title="Link to this heading">#</a></h3>
+<p>Write a function to display a welcome message followed by greeting ‘Nice to meet you.’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_msg</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s1">&#39; Nice to meet you.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">update_msg</span><span class="p">(</span><span class="s1">&#39;Hello Joel.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Joel. Nice to meet you.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Notes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Observe how we <em>concatenate</em> (merge) two strings together using <code class="docutils literal notranslate"><span class="pre">+</span></code> operator</p></li>
+</ul>
+</section>
+</section>
+<section id="more-on-return-in-functions-assignment-statements-and-variables">
+<h3>More on <code class="docutils literal notranslate"><span class="pre">return</span></code> in functions, assignment statements and variables<a class="headerlink" href="#more-on-return-in-functions-assignment-statements-and-variables" title="Link to this heading">#</a></h3>
+<p>You saw that Jupyter treats output from functions with no <code class="docutils literal notranslate"><span class="pre">return</span></code> different from the one produced by functions using <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword (my greeting
+in <code class="docutils literal notranslate"><span class="pre">welcome_msg_4</span></code> was displayed in single quotes - as a string - but Clint Eastwood, in <code class="docutils literal notranslate"><span class="pre">welcome_msg_5</span></code>, was not). As we said, if <code class="docutils literal notranslate"><span class="pre">return</span></code> is used we can further reuse the value produced by the function in our program.
+To do so, we need two things:</p>
+<ol class="arabic simple">
+<li><p>create the value, by calling the function by its name<br></p></li>
+<li><p>name the value (stored in memory), so we can refer to it later.</p></li>
+</ol>
+<p>Both can be achieved in one line, using an <em>assignment</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an assignment statement (naming the value produced by the function call and stored in memory)</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">welcome_msg_2</span><span class="p">(</span><span class="s1">&#39;Laura&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The meaning of an assignment is not to be confused with ‘equality’ which the equal sign may suggest. The assignment statement means: the value on the right hand side (which comes from the <code class="docutils literal notranslate"><span class="pre">welcome_msg_2</span></code> function when it returns) is given a label <code class="docutils literal notranslate"><span class="pre">msg</span></code> (in other words, a storage in computer memory is allocated for the newly created value that is named, for future reference, <code class="docutils literal notranslate"><span class="pre">msg</span></code>). Often, in programming, a name used to refer to something (in memory) is called <code class="docutils literal notranslate"><span class="pre">variable</span></code>. Our <code class="docutils literal notranslate"><span class="pre">msg</span></code> is a variable pointing (referring to) a string object stored in memory.</p>
+<p>For curiosity, let us check the type of the returned value using the built-in <code class="docutils literal notranslate"><span class="pre">type</span></code> function in Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we expected, it is a string type object which in Python corresponds to built-in type <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Now, we can reuse <code class="docutils literal notranslate"><span class="pre">msg</span></code> as we wish, for example by passing it to <code class="docutils literal notranslate"><span class="pre">update_msg</span></code> function (defined above) which accepts one argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">update_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Laura Nice to meet you.
+</pre></div>
+</div>
+</div>
+</div>
+<p>And what is the output of our <code class="docutils literal notranslate"><span class="pre">update_msg</span></code> function? Let us name it <code class="docutils literal notranslate"><span class="pre">upd_msg</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upd_msg</span> <span class="o">=</span> <span class="n">update_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Laura Nice to meet you.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can we reuse it same way we reused <code class="docutils literal notranslate"><span class="pre">msg</span></code>? For example, let us try to pass it to the built-in function <code class="docutils literal notranslate"><span class="pre">print</span></code> to print it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">upd_msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p>It turns out that <code class="docutils literal notranslate"><span class="pre">upd_msg</span></code> refers to <code class="docutils literal notranslate"><span class="pre">None</span></code>. The keyword <code class="docutils literal notranslate"><span class="pre">None</span></code> in Python means ‘no value’, or ‘null value’. <br>
+Summarizing:</p>
+<blockquote>
+<div><p>to reuse the value produced by a function the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword must be explicitly stated in the function definition, otherwise the function returns nothing back to the program when it completes execution. That ‘nothing’ is indicated as <code class="docutils literal notranslate"><span class="pre">None</span></code> in Python. (<code class="docutils literal notranslate"><span class="pre">None</span></code> is another keyword, like <code class="docutils literal notranslate"><span class="pre">def</span></code> or <code class="docutils literal notranslate"><span class="pre">return</span></code>.)</p>
+</div></blockquote>
+</section>
+</section>
+<section id="working-with-formulas">
+<h2>Working with formulas<a class="headerlink" href="#working-with-formulas" title="Link to this heading">#</a></h2>
+<p>Engineers and scientists constantly work with various formulas and calculations. Let us get started with this important
+to master task.</p>
+<p>When the wind blows in cold weather, the air feels even colder than it actually is
+because the movement of the air increases the rate of cooling for warm objects, like
+people. This effect is known as wind chill.
+Australia adopted the following
+formula for computing the wind chill index.</p>
+<div class="math notranslate nohighlight">
+\[
+    W_{chill} = 13.12 + 0.6215T − 11.37V^{0.16} + 0.3965TV^{0.16},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the
+air temperature in degrees Celsius and <span class="math notranslate nohighlight">\(V\)</span> is the wind speed in kilometers per hour.
+Let us write a program that begins by reading the air temperature and wind speed from the
+user. Once these values have been read our program should display the wind chill
+index rounded to the closest integer.</p>
+<section id="wind-chill">
+<h3>Wind chill<a class="headerlink" href="#wind-chill" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># declare constants, as determined by scientists</span>
+<span class="c1"># it is customary to use capitals to indicate constants in programs, and declare them at the beginning</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="mf">13.12</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="mf">0.6215</span>
+<span class="n">C3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.37</span>
+<span class="n">C4</span> <span class="o">=</span> <span class="mf">0.3695</span>
+<span class="n">C5</span> <span class="o">=</span> <span class="mf">0.16</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the temperature and wind speed from the user</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter air temperature: &#39;</span><span class="p">))</span>
+<span class="n">wind_speed</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter wind speed: &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># read the temperature and wind speed from the user</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter air temperature: &#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">wind_speed</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter wind speed: &#39;</span><span class="p">))</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/jupyter-notebooks-bcv3Fqos-py3.12/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the wind chill index (this is our formula translated into Python)</span>
+<span class="n">wind_chill</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">C2</span><span class="o">*</span><span class="n">temp</span> <span class="o">+</span> <span class="n">C3</span> <span class="o">*</span> <span class="n">wind_speed</span> <span class="o">**</span> <span class="n">C5</span> <span class="o">+</span> <span class="n">C4</span> <span class="o">*</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">wind_speed</span> <span class="o">**</span> <span class="n">C5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the result </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The wind chill index = </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">wind_chill</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The wind chill index = -15.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us group these steps together, as a function <code class="docutils literal notranslate"><span class="pre">find_wind_chill</span></code>, for ease of use later and improved clarity of our code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_wind_chill</span><span class="p">():</span>
+    <span class="n">C1</span> <span class="o">=</span> <span class="mf">13.12</span>
+    <span class="n">C2</span> <span class="o">=</span> <span class="mf">0.6215</span>
+    <span class="n">C3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.37</span>
+    <span class="n">C4</span> <span class="o">=</span> <span class="mf">0.3695</span>
+    <span class="n">C5</span> <span class="o">=</span> <span class="mf">0.16</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter air temperature: &#39;</span><span class="p">))</span>
+    <span class="n">wind_speed</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter wind speed: &#39;</span><span class="p">))</span>
+    <span class="n">wind_chill</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">C2</span><span class="o">*</span><span class="n">temp</span> <span class="o">+</span> <span class="n">C3</span> <span class="o">*</span> <span class="n">wind_speed</span> <span class="o">**</span> <span class="n">C5</span> <span class="o">+</span> <span class="n">C4</span> <span class="o">*</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">wind_speed</span> <span class="o">**</span> <span class="n">C5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The wind chill index = </span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">wind_chill</span>)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, to find the wind chill, we just need to call the function by its name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_wind_chill</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The wind chill index = -19.1
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h4>Notes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Recall that not every function needs <code class="docutils literal notranslate"><span class="pre">return</span></code> statement (which one does?).</p></li>
+<li><p>It makes a lot of sense to group code together as a function.</p></li>
+<li><p>Functions correspond to ‘actions’ (displaying on screen, drawing graph, calculating things like finding wind chill).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> indicates power function, that is, <code class="docutils literal notranslate"><span class="pre">2**5</span></code> means 2 to power 5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code> is a built-in Python function allowing users to interact with the running program.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> is built-in function that converts user’s input into a floating-point number (a number with decimal point).</p></li>
+<li><p>It would be nice to find good names for the constants rather than <code class="docutils literal notranslate"><span class="pre">C1,</span> <span class="pre">C2</span></code> etc. We will have some obvious names for constants in our next example.</p></li>
+<li><p>Constants are fixed values in your program; for convenience we use capitals when naming constants.</p></li>
+<li><p>The wind chill formula is considered valid for temperatures not exceeding <span class="math notranslate nohighlight">\(10\)</span> degrees Celsius and wind speed at least <span class="math notranslate nohighlight">\(5\)</span> km per hour.</p></li>
+</ul>
+</section>
+</section>
+<section id="heat-capacity">
+<h3>Heat capacity<a class="headerlink" href="#heat-capacity" title="Link to this heading">#</a></h3>
+<p>The heat capacity H of a material is the amount of energy required to increase the temperature of one gram of the material by one degree Celsius. The energy E required to raise m grams of a material by
+<span class="math notranslate nohighlight">\(\Delta T\)</span> degrees Celsius can be computed using the formula:</p>
+<div class="math notranslate nohighlight">
+\[
+E = mH\Delta T
+\]</div>
+<p>Write a program that reads the mass of some water and the temperature change from
+the user and displays the total amount of energy that must be added
+(or removed) to achieve the desired temperature change. The heat capacity of water is
+<span class="math notranslate nohighlight">\(4.186 \frac{J}{g^◦C}\)</span>. Because water has a
+density of <span class="math notranslate nohighlight">\(1.0\)</span> grams per milliliter, we can use grams and milliliters interchangeably here.
+Assuming electricity costs of <span class="math notranslate nohighlight">\(42\)</span> cents per kilowatt hour find the cost of
+boiling the water for a cup of coffee.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define constants </span>
+<span class="n">HIT_CAP</span> <span class="o">=</span> <span class="mf">4.186</span>
+<span class="n">KWH_PRICE</span> <span class="o">=</span> <span class="mf">0.42</span> <span class="c1"># dollars</span>
+<span class="n">JOULE_to_KWH</span> <span class="o">=</span> <span class="mf">2.77e-7</span>      <span class="c1">#equals 2.77*10**(-7)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get data from the user</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter amount of water in mililiters: &#39;</span><span class="p">))</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter temperature increase: &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute the energy in Joules</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">HIT_CAP</span> <span class="o">*</span> <span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the energy value</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This will require </span><span class="si">%d</span><span class="s1"> Joules of energy.&#39;</span> <span class="o">%</span><span class="k">E</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This will require 100464 Joules of energy.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#convert energy in Joules to kwh</span>
+<span class="n">kwh</span> <span class="o">=</span> <span class="n">E</span> <span class="o">*</span> <span class="n">JOULE_to_KWH</span>
+
+<span class="c1">#find the cost</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">kwh</span> <span class="o">*</span> <span class="n">KWH_PRICE</span>
+
+<span class="c1">#display the cost</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The cost is: </span><span class="si">%.2f</span><span class="s1"> dollars&#39;</span> <span class="o">%</span> <span class="n">cost</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cost is: 0.01 dollars
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you entered <span class="math notranslate nohighlight">\(250\)</span> mililiters and temperature increase <span class="math notranslate nohighlight">\(80\)</span> you got the cost of heating the water for your coffee.</p>
+<section id="id4">
+<h4>Notes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Python allows numbers to be written in scientific notation (common in engineering calcualtions) by placing the coefficient to the left of an <code class="docutils literal notranslate"><span class="pre">e</span></code> and the exponent to its right. Thus, <span class="math notranslate nohighlight">\(270000=2.7*10^4\)</span> can be written as <code class="docutils literal notranslate"><span class="pre">2.5e4</span></code>, while <span class="math notranslate nohighlight">\(0.000051\)</span> can be written as <code class="docutils literal notranslate"><span class="pre">5.1e-5</span></code>.</p></li>
+<li><p>The format specifier for scientific notation is <code class="docutils literal notranslate"><span class="pre">%e</span></code> or upper case <code class="docutils literal notranslate"><span class="pre">%E</span></code></p></li>
+<li><p>If you use <code class="docutils literal notranslate"><span class="pre">%g</span></code> Python will select for you <code class="docutils literal notranslate"><span class="pre">%f</span></code> or <code class="docutils literal notranslate"><span class="pre">%e</span></code>, whichever is shorter</p></li>
+<li><p>Recall that <code class="docutils literal notranslate"><span class="pre">.2f</span></code> means the number printed with two decimal places</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="using-python-libraries-numpy-math">
+<h2>Using Python libraries: <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code><a class="headerlink" href="#using-python-libraries-numpy-math" title="Link to this heading">#</a></h2>
+<p>Python programming is modular by design, that is, the complex
+tasks are divided into small modules/libraries that seamlessly interact with each
+other. Libraries make program development and debugging easier, and they
+can be simply imported to enable the use of various functions. There are more than thousand libraries included in Anaconda. We will focus on a few libraries particularly useful in engineering applications.</p>
+<p>Let us load one of the most useful library in Python: NumPy (Numerical Python), and name it <code class="docutils literal notranslate"><span class="pre">np</span></code>
+(shortcut is used to save on typing; almost everyone uses <code class="docutils literal notranslate"><span class="pre">np</span></code> for NumPy). Our next task illustrates its usage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen">
+<h3>Write a function to calculate cube of a random integer and print the integer and its cube on screen.<a class="headerlink" href="#write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the random integer between 1 (inclusive) and 10 (exclusive) and name it &#39;i&#39;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apply the newly defined function (note that it returns a value so the assignment makes sense)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> cube is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 cube is 27
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id5">
+<h4>Notes<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Alternatively, we could use the power function operator <code class="docutils literal notranslate"><span class="pre">**</span></code> in the definition of <code class="docutils literal notranslate"><span class="pre">cube</span></code> function.</p></li>
+<li><p>We called <code class="docutils literal notranslate"><span class="pre">randint</span></code> function defined in the module <code class="docutils literal notranslate"><span class="pre">random</span></code> in library <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
+<li><p>Observe the so called ‘dot syntax’ allowing us to access functions in modules (sublibraries) of a given library.</p></li>
+<li><p>You may wonder whether <code class="docutils literal notranslate"><span class="pre">np</span></code> in front of NumPy library functions could be avoided. The answer is yes, but for a price. You would have to import each single function rather than the whole package at once. So, you would need to know in advance what you need.</p></li>
+<li><p>It is not unusual to load several modules/libraries into the same program and as a result having the same named functions but with potentially different implementations available (for example trig functions like sine, cosine etc. are implemented both in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">math</span></code> libraries). As you may guess it would be confusing and may lead to errors, hence placing the <code class="docutils literal notranslate"><span class="pre">np</span></code> in front of the function name, to clearly indicate the module where the function is defined, is a sensible way (therefore <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> would call <code class="docutils literal notranslate"><span class="pre">sin</span></code> from <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library and not the one implemented in <code class="docutils literal notranslate"><span class="pre">math</span></code> library).</p></li>
+</ul>
+<p>Suppose you want to find <code class="docutils literal notranslate"><span class="pre">sine</span></code> of 10. You may either use <code class="docutils literal notranslate"><span class="pre">sine</span></code> function implemented in NumPy or the one from <code class="docutils literal notranslate"><span class="pre">math</span></code>, like that</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5440211108893698
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5440211108893698
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is not uncommon to find some overlap between libraries. However, each module/library is designed for different purpose.
+NumPy library implementations are optimized for computational efficiency/speed and it is therefore the preferred library when
+intensive (memory heavy) calculations are involved.</p>
+</section>
+</section>
+</section>
+<section id="tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">
+<h2>Tell me more - potentially boring but very usefull stuff to know - do not skip!<a class="headerlink" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip" title="Link to this heading">#</a></h2>
+<section id="algorithm-vs-computer-program">
+<h3>Algorithm vs computer program<a class="headerlink" href="#algorithm-vs-computer-program" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An <em>algorithm</em> is a finite sequence of steps leading to a solution of a problem (like a recipe).</p></li>
+<li><p>A <em>program</em> is sequence of instructions that controll computer’s behaviour.</p></li>
+<li><p>An algorithm must be translated into a program to use a computer to solve a problem.</p></li>
+<li><p>The translation process is called <em>programming</em>.</p></li>
+<li><p>Pogramming languages like Python have precise syntax rules that must be obeyed.</p></li>
+</ul>
+</section>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In Python the beginning of a comment is indicated by <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
+<li><p>Comments provide an opportunity for a programmer to explain their code.</p></li>
+<li><p>The computer (Python interpreter) ignores all of the comments - they are for humans.</p></li>
+<li><p>You should start your programs with comments including your name, date and the purpose of the program.</p></li>
+<li><p>You should also include usefull, brief comments when completing portions of code.</p></li>
+<li><p>Comments allow anyone to quickly determine what the program does.</p></li>
+</ul>
+</section>
+<section id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Named locations in computer’s memory used to store values like numbers, letters or more complex objects.</p></li>
+<li><p>Variable name must begin with a letter or an underscore, followed by any combination of letters, underscores and numbers.</p></li>
+<li><p>Variables are created using assignment statements; they point to/name memory locations.</p></li>
+</ul>
+<p>Variable manipulations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create variable x pointing to/referring to number 12 (stored somewhere in memory)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Change the value under the name <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use x to create another variable, say y</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the same variable may appear on both sides of an assignment!</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="c1"># it means that the original value x referrred to is replaced by a new value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can print more than variable value at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18 17
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">input</span></code> function used to read input from keyboard always returns a <em>string</em>, which means a sequence of characters.</p></li>
+<li><p>Conversion to an integer (the whole number like 0, 1 ,2 … etc., including negatives like -1, -2 etc.) can be done by calling built-in <code class="docutils literal notranslate"><span class="pre">int</span></code> function.</p></li>
+<li><p>Convertion to a floating-point number is performed with the built-in <code class="docutils literal notranslate"><span class="pre">float</span></code> function.</p></li>
+<li><p>You <strong>must</strong> convert strings to numbers if you want to perform calculations on them.</p></li>
+<li><p>The built-in <code class="docutils literal notranslate"><span class="pre">len</span></code> function is used to find the number of characters in a string (the length of the string).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Your first name please: &#39;</span><span class="p">)</span> <span class="c1"># pure string is expected</span>
+<span class="n">surname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Your surname please: &#39;</span><span class="p">)</span> <span class="c1"># again pure string is expected</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you? &#39;</span> <span class="p">))</span> <span class="c1"># an integer is expected               </span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How tall are you? &#39;</span><span class="p">))</span> <span class="c1"># a number with decimal places is  allowed/expected</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<ul class="simple">
+<li><p>strings can be concatenated using <code class="docutils literal notranslate"><span class="pre">+</span></code> operator (note inclusion of an empty space, also a string type).</p></li>
+<li><p>We often include additional strings like commas, colons or just empty spaces to improve output readibility.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">surname</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your full name is &#39;</span><span class="p">,</span> <span class="n">full_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your full name contains &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_name</span><span class="p">),</span> <span class="s1">&#39;characters.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your full name is  John Brown
+Your full name contains  10 characters.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Each character in a string has a unique integer associated called ‘index’ which indicates its position in the string.</p></li>
+<li><p>The first character in a string has index 0, the next one has index 1 and so on.</p></li>
+<li><p>The last character in a string <code class="docutils literal notranslate"><span class="pre">s</span></code> has an index equal to <code class="docutils literal notranslate"><span class="pre">len(s)-1</span></code>.</p></li>
+<li><p>You can access a single character in a string by placing index inside square brackets.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display your initials</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">surname</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formatting-values">
+<h3>Formatting values<a class="headerlink" href="#formatting-values" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A programmer can specify how to format a value using ‘format specifier’.</p></li>
+<li><p>The specifier uses one character to indicate type of the formatting: <code class="docutils literal notranslate"><span class="pre">s</span></code> - string, <code class="docutils literal notranslate"><span class="pre">f</span></code> - floating-point number, <code class="docutils literal notranslate"><span class="pre">d</span></code> or <code class="docutils literal notranslate"><span class="pre">i</span></code> - integer, <code class="docutils literal notranslate"><span class="pre">c</span></code> - character.</p></li>
+<li><p>To understand formatting carefully study the examples below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.789</span>
+<span class="n">z</span> <span class="o">=</span> <span class="s1">&#39;engineering&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">x</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> and </span><span class="si">%f</span><span class="s1"> and </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 and 2.789000 and engineering
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify accuracy, two decimal places for value stored in &#39;y&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> and </span><span class="si">%.2f</span><span class="s1"> and </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 and 2.79 and engineering
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># by saying %8.1 we tell Python that a total of at least 8 spaces </span>
+<span class="c1"># should be used to display the number, with 1 digit</span>
+<span class="c1"># to the right of the decimal point</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> and </span><span class="si">%8.1f</span><span class="s1"> and </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 and      2.8 and engineering
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 20 places are reserved for the string</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%i</span><span class="s1"> and </span><span class="si">%20s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 and          engineering
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%i</span><span class="s1"> and </span><span class="si">%12s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 and  engineering
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%4i</span><span class="s1"> and </span><span class="si">%10i</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2 and          6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%-2i</span><span class="s1"> and </span><span class="si">%4i</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2  and    6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%2i</span><span class="s1"> and </span><span class="si">%4i</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2 and    6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calling-functions">
+<h3>Calling functions<a class="headerlink" href="#calling-functions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>There are many various tasks programs frequently need to complete, like reading input, sorting a list or rounding a number.</p></li>
+<li><p>For convenience, Python provides built-in functions to perform these tasks, for example: <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code> etc.</p></li>
+<li><p>Functions are called by names followed by parentheses.</p></li>
+<li><p>Many functions require additional values when you call them, and these values (called <code class="docutils literal notranslate"><span class="pre">arguments</span></code>) must be placed inside the parentheses when you call functions (arguments requirements are indicated by the corresponding parameters in the function definition).</p></li>
+<li><p>Functions often return values, and if so, those values can be used in assignments, like <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">=</span> <span class="pre">round(num)</span></code>.</p></li>
+<li><p>If you would rather keep the original value stored in <code class="docutils literal notranslate"><span class="pre">num</span></code> (the one before you applied <code class="docutils literal notranslate"><span class="pre">round</span></code>), you would use different name for the new one, like <code class="docutils literal notranslate"><span class="pre">num2</span> <span class="pre">=</span> <span class="pre">round(num)</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>All exercises below are heavily based on this notebook material (no need to consult additional sources to complete them) and are intended to reinforce what you have learned in this notebook. It is strongly recommended that you attempt all of them before you check the provided solutions.</p>
+<section id="printing-on-screen">
+<h3>Printing on screen<a class="headerlink" href="#printing-on-screen" title="Link to this heading">#</a></h3>
+<p>Create a function named <code class="docutils literal notranslate"><span class="pre">show_address</span></code> that will display your name and your mailing address. The function does not need to take any additional info or return anything. Therefore you may just call it like <code class="docutils literal notranslate"><span class="pre">show_address()</span></code> and it should print on screen something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">your</span> <span class="n">name</span>
+<span class="n">street</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">suburb</span>
+<span class="n">postcode</span> <span class="ow">and</span> <span class="n">city</span>
+<span class="n">country</span>
+</pre></div>
+</div>
+<section id="adding-flexibility">
+<h4>Adding flexibility<a class="headerlink" href="#adding-flexibility" title="Link to this heading">#</a></h4>
+<p>Modify your previous solution so that <code class="docutils literal notranslate"><span class="pre">show_address</span></code> accepts additional information, the name of the person to print the address. For example, when you call it <code class="docutils literal notranslate"><span class="pre">show_address('James</span> <span class="pre">Cook')</span></code> it will print out James Cook name followed by your address. You may also include other information by adding appropriate parameters, like shown below.</p>
+<p>Output example (note the function arguments)<br></p>
+<!-- \centering ![image](./images/ex_1.1.1_out.png){width=0.25\textwidth}\centering -->
+<img align = "left" src="./images/ex_1.1.1_out.png" width="80%"></section>
+</section>
+<section id="finding-the-area-of-a-rectangle">
+<h3>Finding the area of a rectangle<a class="headerlink" href="#finding-the-area-of-a-rectangle" title="Link to this heading">#</a></h3>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">find_area</span></code> that asks the user to enter the width and length of a rectangular room. Once
+these values have been read, your program should compute and display the area of
+the room. The length and the width will be entered as floating-point numbers. Include
+units in your prompt and output message. Calling the function by name <code class="docutils literal notranslate"><span class="pre">find_area()</span></code> should produce the message like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">area</span> <span class="n">of</span> <span class="n">your</span> <span class="n">room</span> <span class="ow">is</span> <span class="mf">24.4</span> <span class="n">square</span> <span class="n">metres</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Of course, the actual number will differ for your room.</p>
+<section id="adding-more-flexibility">
+<h4>Adding more flexibility<a class="headerlink" href="#adding-more-flexibility" title="Link to this heading">#</a></h4>
+<p>Modify your previous solution so that <code class="docutils literal notranslate"><span class="pre">find_area</span></code> accepts additional information, the name of the person to print the room area. For example, when you call it <code class="docutils literal notranslate"><span class="pre">find_area('Julie')</span></code> it will print out:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">area</span> <span class="n">of</span> <span class="n">your</span> <span class="n">room</span> <span class="n">Julie</span> <span class="ow">is</span> <span class="mf">31.5</span> <span class="n">square</span> <span class="n">metres</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="even-more-flexibility">
+<h4>Even more flexibility<a class="headerlink" href="#even-more-flexibility" title="Link to this heading">#</a></h4>
+<p>Modify your previous solution to find the volume of a room and not asking the user for input. Instead, the required input will be passed to the function inside parentheses. Call the function <code class="docutils literal notranslate"><span class="pre">find_volume</span></code>. It will accept four pieces of additional information: person’s name, floor_width, floor_height, and room_height.</p>
+<p>Output example (note the function arguments)<br></p>
+<!-- \centering ![image](./images/ex_1.1.2_out.png){width=0.25\textwidth}\centering -->
+<img align = "left" src="./images/ex_1.1.2_out.png" width="50%"></section>
+</section>
+<section id="free-fall">
+<h3>Free fall<a class="headerlink" href="#free-fall" title="Link to this heading">#</a></h3>
+<p>Given the height from which the object is dropped in metres,
+write a function named <code class="docutils literal notranslate"><span class="pre">free_fall_speed</span></code> that determines how quickly an object is travelling when it hits the
+ground. Assume the object’s initial speed is <span class="math notranslate nohighlight">\(v_0\)</span> and the acceleration
+due to gravity is constant <span class="math notranslate nohighlight">\(a=9.8m/s^2\)</span> (as you recall from school). You can use the formula <span class="math notranslate nohighlight">\(v =\sqrt{v_0^2 + 2ad}\)</span> to compute the
+final velocity, <span class="math notranslate nohighlight">\(v\)</span> , when the initial speed, <span class="math notranslate nohighlight">\(v_0\)</span> , and distance, <span class="math notranslate nohighlight">\(d\)</span>, are known. You may either ask the user for input of <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(d\)</span> or pass this info to the function when you call it, like <code class="docutils literal notranslate"><span class="pre">free_fall_speed(10,</span> <span class="pre">20)</span></code>. For practice you may as well provide both implementations. Print out the answer with 3 decimal places. To calculate the square root use the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement to enable <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+</pre></div>
+</div>
+<p>Output example (note the function arguments)<br></p>
+<!-- \centering ![image](./images/ex_1.1.3_out.png){width=0.25\textwidth}\centering -->
+<img align = "left" src="./images/ex_1.1.3_out.png" width="40%"></section>
+<section id="basic-arithmetic">
+<h3>Basic Arithmetic<a class="headerlink" href="#basic-arithmetic" title="Link to this heading">#</a></h3>
+<p>Create a function that reads two integers, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, from the user. It should compute and display the sum <span class="math notranslate nohighlight">\(x+y\)</span>, difference <span class="math notranslate nohighlight">\(x-y\)</span>, product <span class="math notranslate nohighlight">\(x*y\)</span>, quotient <span class="math notranslate nohighlight">\(x/y\)</span> and the power <span class="math notranslate nohighlight">\(a^b\)</span>.</p>
+<p>Output example (note the lack of function arguments)<br></p>
+<!-- \centering ![image](./images/ex_1.1.4_out.png){width=0.25\textwidth}\centering -->
+<img align = "left" src="./images/ex_1.1.4_out.png" width="30%"></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_intro_to_python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-messages-on-screen">Displaying messages on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-hello-on-screen">Display ‘Hello’ on screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-your-name-on-screen">Display your name on screen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-with-functions">Display with functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-a-function-to-display-your-name-and-surname-on-screen">Write a function to display your name and surname on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-formatting-numbers">Displaying/formatting numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-concatenation-with-operator">Strings concatenation with <code class="docutils literal notranslate"><span class="pre">+</span></code> operator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-return-in-functions-assignment-statements-and-variables">More on <code class="docutils literal notranslate"><span class="pre">return</span></code> in functions, assignment statements and variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-formulas">Working with formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-chill">Wind chill</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Notes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-capacity">Heat capacity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-libraries-numpy-math">Using Python libraries: <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-a-function-to-calculate-cube-of-a-random-integer-and-print-the-integer-and-its-cube-on-screen">Write a function to calculate cube of a random integer and print the integer and its cube on screen.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-me-more-potentially-boring-but-very-usefull-stuff-to-know-do-not-skip">Tell me more - potentially boring but very usefull stuff to know - do not skip!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-vs-computer-program">Algorithm vs computer program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-values">Formatting values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-functions">Calling functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-on-screen">Printing on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-flexibility">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-of-a-rectangle">Finding the area of a rectangle</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-more-flexibility">Adding more flexibility</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#even-more-flexibility">Even more flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#free-fall">Free fall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic">Basic Arithmetic</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
