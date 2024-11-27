@@ -4,6 +4,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: 1_intro_to_python/1_intro_to_Python.ipynb
+- file: 2_making_decisions/2_making_decisions.ipynb
