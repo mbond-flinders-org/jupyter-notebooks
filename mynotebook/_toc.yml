@@ -4,5 +4,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: 1_intro_to_python/1_intro_to_Python.ipynb
-- file: 2_making_decisions/2_making_decisions.ipynb
+- file: ../1_intro_to_python/1_intro_to_Python_solutions.ipynb
+- file: ../2_making_decisions/2_making_decisions.ipynb
