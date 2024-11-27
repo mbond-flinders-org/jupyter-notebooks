@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Making decisions - solutions to exercises &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2_making_decisions/2_making_decisions_solutions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_intro_to_python/1_intro_to_Python_solutions.html">Introducing Python - solutions to exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_making_decisions.html">Making decisions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F2_making_decisions/2_making_decisions_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/2_making_decisions/2_making_decisions_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making decisions - solutions to exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-body-mass-index-bmi">Calculate Body Mass Index (BMI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-days-in-the-month">How many days in the month?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-it-the-snake-year-or-the-dragon-one">Is it the snake year, or the dragon one?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="making-decisions-solutions-to-exercises">
+<h1>Making decisions - solutions to exercises<a class="headerlink" href="#making-decisions-solutions-to-exercises" title="Link to this heading">#</a></h1>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Making-decisions---solutions-to-exercises" data-toc-modified-id="Making-decisions---solutions-to-exercises-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Making decisions - solutions to exercises</a></span><ul class="toc-item"><li><span><a href="#Calculate-Body-Mass-Index-(BMI)" data-toc-modified-id="Calculate-Body-Mass-Index-(BMI)-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Calculate Body Mass Index (BMI)</a></span></li><li><span><a href="#How-many-days-in-the-month?" data-toc-modified-id="How-many-days-in-the-month?-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>How many days in the month?</a></span></li><li><span><a href="#Is-it-the-snake-year,-or-the-dragon-one?" data-toc-modified-id="Is-it-the-snake-year,-or-the-dragon-one?-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Is it the snake year, or the dragon one?</a></span></li></ul></li></ul></div><section id="calculate-body-mass-index-bmi">
+<h2>Calculate Body Mass Index (BMI)<a class="headerlink" href="#calculate-body-mass-index-bmi" title="Link to this heading">#</a></h2>
+<p>Write a Python function named <code class="docutils literal notranslate"><span class="pre">find_BMI</span></code> to calculate body mass index and display the grade from the following grades:<BR></p>
+<blockquote>
+<div><p>Underweight:  BMI &lt; 18.5 <br>
+Normal weight:  18.5 &lt;= BMI &lt; 25.0 <br>
+Overweight:  25.0 &lt;= BMI &lt; 30.0 <br>
+Obesity (class 1): 30.0 &lt;= BMI &lt; 35<br>
+Obesity (class 2): 35.0 &lt;= BMI<br></p>
+</div></blockquote>
+<p>Where weight is taken in kilograms and height in meters.
+BMI is calculated as your weight W (in kilograms) divided by the square of your height H (in metres) or <br></p>
+<div class="math notranslate nohighlight">
+\[
+    BMI = \frac{W}{H^2}.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_BMI</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="c1">#calculate the BMI (assuming weight is in kg and height in meters)</span>
+    <span class="n">BMI</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="k">if</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are underweight. Your BMI is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">BMI</span>)
+    <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mf">25.0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are healthy.Your BMI is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">BMI</span>)
+    <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mf">30.0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are over weight. Your BMI is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">BMI</span>)
+    <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are severely over weight.Your BMI is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">BMI</span>)
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are severely obese. Your BMI is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">BMI</span>)
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_BMI</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span><span class="mf">1.76</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are over weight. Your BMI is 25.18
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-many-days-in-the-month">
+<h2>How many days in the month?<a class="headerlink" href="#how-many-days-in-the-month" title="Link to this heading">#</a></h2>
+<p>As we know a month may have as few as 28 days, and as many as 31. Write a function named <code class="docutils literal notranslate"><span class="pre">days</span></code> that takes month name, as a parameter, and prints out the number of days in that month. For February, display “28 or 29 days”, so that leap year is included.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">days</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">leap_year</span><span class="p">):</span>
+    <span class="c1">#set it to 31 unless stated otherwise (as per below)</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="mi">31</span>
+
+    <span class="c1">#find out the number of days</span>
+    <span class="c1">#note that number of days may be handled as an integer or as a string (whatever is needed/convenient)</span>
+
+    <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;April&#39;</span> <span class="ow">or</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;June&#39;</span> <span class="ow">or</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;September&#39;</span> <span class="ow">or</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;November&#39;</span><span class="p">:</span>
+        <span class="n">days</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="k">elif</span> <span class="n">month</span> <span class="o">==</span> <span class="s1">&#39;February&#39;</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">leap_year</span><span class="p">:</span> <span class="n">days</span> <span class="o">=</span> <span class="s1">&#39;29&#39;</span> 
+        <span class="k">else</span><span class="p">:</span> <span class="n">days</span> <span class="o">=</span> <span class="s1">&#39;29&#39;</span> 
+
+    <span class="c1"># Display the result</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="s1">&#39;days in it.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span><span class="p">(</span><span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>February has 29 days in it.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="is-it-the-snake-year-or-the-dragon-one">
+<h2>Is it the snake year, or the dragon one?<a class="headerlink" href="#is-it-the-snake-year-or-the-dragon-one" title="Link to this heading">#</a></h2>
+<p>The Chinese zodiac matches animals with years in a 12 year cycle. One such cycle is shown in the table below.</p>
+<img src="./images/zodiac_china.png" width="14%"/>
+<p>The pattern repeats, and so 2012 was again year of the dragon, then 2013 being the year of the snake etc. Write a function that reads the year from the user (or takes it as a parameter, whatever you prefer) and displays the animal associated with that year. What year would be 2050 or 2099?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zodiac</span><span class="p">():</span>
+    <span class="c1"># Read a year from the user</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a year: &quot;</span><span class="p">))</span>
+    
+    <span class="c1"># Determine the animal associated with provided year</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Dragon&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Snake&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Horse&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Sheep&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Monkey&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Rooster&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Dog&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Pig&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Rat&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Ox&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Tiger&quot;</span>
+    <span class="k">elif</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Hare&quot;</span>
+    
+    <span class="c1"># Report the result</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> is the year of the </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">animal</span><span class="p">))</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zodiac</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">zodiac</span><span class="p">()</span>
+
+<span class="nn">Cell In[5], line 3,</span> in <span class="ni">zodiac</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">zodiac</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Read a year from the user</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a year: &quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># Determine the animal associated with provided year</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Dragon&quot;</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/jupyter-notebooks-bcv3Fqos-py3.12/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zodiac</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2008 is the year of the Rat.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./2_making_decisions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-body-mass-index-bmi">Calculate Body Mass Index (BMI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-days-in-the-month">How many days in the month?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-it-the-snake-year-or-the-dragon-one">Is it the snake year, or the dragon one?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

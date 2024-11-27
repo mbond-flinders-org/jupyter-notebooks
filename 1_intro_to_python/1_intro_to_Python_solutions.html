@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducing Python - solutions to exercises &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_intro_to_python/1_intro_to_Python_solutions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Making decisions" href="../2_making_decisions/2_making_decisions.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducing Python - solutions to exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_making_decisions/2_making_decisions.html">Making decisions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_intro_to_python/1_intro_to_Python_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_intro_to_python/1_intro_to_Python_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducing Python - solutions to exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-on-screen">Printing on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-flexibility">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-of-a-rectangle">Finding the area of a rectangle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-fall">Free fall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic">Basic Arithmetic</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introducing-python-solutions-to-exercises">
+<h1>Introducing Python - solutions to exercises<a class="headerlink" href="#introducing-python-solutions-to-exercises" title="Link to this heading">#</a></h1>
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Introducing-Python---solutions-to-exercises" data-toc-modified-id="Introducing-Python---solutions-to-exercises-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introducing Python - solutions to exercises</a></span><ul class="toc-item"><li><span><a href="#Printing-on-screen" data-toc-modified-id="Printing-on-screen-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Printing on screen</a></span><ul class="toc-item"><li><span><a href="#Adding-flexibility" data-toc-modified-id="Adding-flexibility-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>Adding flexibility</a></span></li></ul></li><li><span><a href="#Finding-the-area-of-a-rectangle" data-toc-modified-id="Finding-the-area-of-a-rectangle-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Finding the area of a rectangle</a></span><ul class="toc-item"><li><span><a href="#Adding-flexibility" data-toc-modified-id="Adding-flexibility-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Adding flexibility</a></span></li></ul></li><li><span><a href="#Free-fall" data-toc-modified-id="Free-fall-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Free fall</a></span></li><li><span><a href="#Basic-Arithmetic" data-toc-modified-id="Basic-Arithmetic-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Basic Arithmetic</a></span></li></ul></li></ul></div><section id="printing-on-screen">
+<h2>Printing on screen<a class="headerlink" href="#printing-on-screen" title="Link to this heading">#</a></h2>
+<p>Create a function named <code class="docutils literal notranslate"><span class="pre">show_address</span></code> that will display your name and your mailing address. The function does not need to take any additional info or return anything. Therefore you may just call it like <code class="docutils literal notranslate"><span class="pre">show_address()</span></code> and it should print on screen something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">your</span> <span class="n">name</span>
+<span class="n">street</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">suburb</span>
+<span class="n">postcode</span> <span class="ow">and</span> <span class="n">city</span>
+<span class="n">country</span>
+</pre></div>
+</div>
+<p>The function will have empty parameter list and will not have the  <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_address</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jon Snow&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mystery Road, IceTree&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1235, Pentos&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Westeros&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_address</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jon Snow
+Mystery Road, IceTree
+1235, Pentos
+Westeros
+</pre></div>
+</div>
+</div>
+</div>
+<section id="adding-flexibility">
+<h3>Adding flexibility<a class="headerlink" href="#adding-flexibility" title="Link to this heading">#</a></h3>
+<p>Modify your previous solution so that <code class="docutils literal notranslate"><span class="pre">show_address</span></code> accepts additional information, the name of the person to print the address. For example, when you call it <code class="docutils literal notranslate"><span class="pre">show_address('James</span> <span class="pre">Cook')</span></code> it will print out James Cook name followed by your address.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_address</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">street</span><span class="p">,</span><span class="n">suburb</span><span class="p">,</span><span class="n">postcode</span><span class="p">,</span><span class="n">city</span><span class="p">,</span><span class="n">country</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">street</span><span class="p">,</span><span class="n">suburb</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">postcode</span><span class="p">,</span><span class="n">city</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_address</span><span class="p">(</span><span class="s1">&#39;Jack Snell&#39;</span><span class="p">,</span> <span class="s1">&#39;West Ave.&#39;</span><span class="p">,</span> <span class="s1">&#39;Kingswood&#39;</span><span class="p">,</span> <span class="s1">&#39;3231&#39;</span><span class="p">,</span> <span class="s1">&#39;Silver City&#39;</span><span class="p">,</span> <span class="s1">&#39;Greenland&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jack Snell
+West Ave. Kingswood
+3231 Silver City
+Greenland
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_address</span><span class="p">(</span><span class="s1">&#39;Andy Shark&#39;</span><span class="p">,</span> <span class="s1">&#39;South Ave.&#39;</span><span class="p">,</span> <span class="s1">&#39;Woodside&#39;</span><span class="p">,</span> <span class="s1">&#39;1231&#39;</span><span class="p">,</span> <span class="s1">&#39;Iced City&#39;</span><span class="p">,</span> <span class="s1">&#39;Redland&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Andy Shark
+South Ave. Woodside
+1231 Iced City
+Redland
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="finding-the-area-of-a-rectangle">
+<h2>Finding the area of a rectangle<a class="headerlink" href="#finding-the-area-of-a-rectangle" title="Link to this heading">#</a></h2>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">find_area</span></code> that asks the user to enter the width and length of a rectangular room. Once
+these values have been read, your program should compute and display the area of
+the room. The length and the width will be entered as floating-point numbers. Include
+units in your prompt and output message. Calling the function by name <code class="docutils literal notranslate"><span class="pre">find_area()</span></code> should produce the message like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">area</span> <span class="n">of</span> <span class="n">your</span> <span class="n">room</span> <span class="ow">is</span> <span class="mf">24.4</span> <span class="n">square</span> <span class="n">metres</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Of course, the actual number will differ for your room.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_area</span><span class="p">():</span>
+    <span class="c1"># Read the width and height of the room floor</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter width of the room: &#39;</span><span class="p">))</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter height of the room: &#39;</span><span class="p">))</span>
+    
+    <span class="c1">#apply formula (known from school) for area of a reactangle</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
+    
+    <span class="c1">#print out/display the output</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The area of the room is </span><span class="si">%.1f</span><span class="s1"> square metres.&#39;</span> <span class="o">%</span><span class="k">area</span>)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_area</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">find_area</span><span class="p">()</span>
+
+<span class="nn">Cell In[6], line 3,</span> in <span class="ni">find_area</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">find_area</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Read the width and height of the room floor</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter width of the room: &#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter height of the room: &#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="c1">#apply formula (known from school) for area of a reactangle</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/jupyter-notebooks-bcv3Fqos-py3.12/lib/python3.12/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_area</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter width of the room: &#39;</span><span class="p">))</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter height of the room: &#39;</span><span class="p">))</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The area of your room </span><span class="si">%s</span><span class="s1"> is </span><span class="si">%.1f</span><span class="s1"> square metres.&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">area</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_area</span><span class="p">(</span><span class="s1">&#39;Julie&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area of your room Julie is 6.7 square metres.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Adding flexibility<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Modify your previous solution to find the volume of a room and not asking the user for input. Instead, the required input will be passed to the function through arguments. Call the function <code class="docutils literal notranslate"><span class="pre">find_volume</span></code>. It will accept four pieces of additional information: person’s name, floor_width, floor_height, and room_height. For example, when you call it <code class="docutils literal notranslate"><span class="pre">find_volume('Julie',</span> <span class="pre">5,</span> <span class="pre">3.21,</span> <span class="pre">2.7)</span></code> it will print out:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">your</span> <span class="n">room</span> <span class="n">Julie</span> <span class="ow">is</span> <span class="mf">43.36</span> <span class="n">cubic</span> <span class="n">metres</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note that you do not need to read the required information using <code class="docutils literal notranslate"><span class="pre">input</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_volume</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">floor_width</span><span class="p">,</span> <span class="n">floor_height</span><span class="p">,</span> <span class="n">room_height</span><span class="p">):</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="n">floor_width</span> <span class="o">*</span> <span class="n">floor_height</span><span class="o">*</span><span class="n">room_height</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of your room </span><span class="si">%s</span><span class="s1"> is </span><span class="si">%.1f</span><span class="s1"> cubic metres.&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">volume</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">find_volume</span><span class="p">(</span><span class="s1">&#39;Julie&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">3.21</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The volume of your room Julie is 43.3 cubic metres.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="free-fall">
+<h2>Free fall<a class="headerlink" href="#free-fall" title="Link to this heading">#</a></h2>
+<p>Given the height from which the object is dropped in metres,
+write a function named <code class="docutils literal notranslate"><span class="pre">free_fall_speed</span></code> that determines how quickly an object is travelling when it hits the
+ground. Assume the object’s initial speed is <span class="math notranslate nohighlight">\(v_0\)</span> and the acceleration
+due to gravity is constant <span class="math notranslate nohighlight">\(a=9.8m/s^2\)</span> (as you recall from school). You can use the formula <span class="math notranslate nohighlight">\(v =\sqrt{v_0^2 + 2ad}\)</span> to compute the
+final velocity, <span class="math notranslate nohighlight">\(v\)</span> , when the initial speed, <span class="math notranslate nohighlight">\(v_0\)</span> , and distance, <span class="math notranslate nohighlight">\(d\)</span>, are known. You may either ask the user for input of <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(d\)</span> or pass this info to the function when you call it, like <code class="docutils literal notranslate"><span class="pre">free_fall_speed(10,</span> <span class="pre">20)</span></code>. For practice you may as well provide both implementations. Print out the answer with 3 decimal places. To calculate the square root use the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement to enable <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">free_fall_speed</span><span class="p">(</span><span class="n">ini_speed</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+    
+    <span class="c1"># Define a constant for the acceleration due to gravity in m/s**2</span>
+    <span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">9.8</span>
+
+    <span class="c1"># Compute the final velocity</span>
+    <span class="n">vf</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">ini_speed</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">GRAVITY</span> <span class="o">*</span> <span class="n">distance</span><span class="p">)</span>
+
+    <span class="c1"># Display the result</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It will hit the ground at </span><span class="si">%.2f</span><span class="s2"> m/s.&quot;</span> <span class="o">%</span> <span class="n">vf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">free_fall_speed</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It will hit the ground at 22.18 m/s.
+</pre></div>
+</div>
+</div>
+</div>
+<p>alternatively, you could ask for user for all (or some) input values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">free_fall_speed2</span><span class="p">(</span><span class="n">ini_speed</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+    
+    <span class="c1"># Define a constant for the acceleration due to gravity in m/s**2</span>
+    <span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">9.8</span>
+    
+    <span class="c1"># Read the height from which the object is dropped</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter height (in meters): &quot;</span><span class="p">))</span>
+    
+    <span class="c1"># Compute the final velocity</span>
+    <span class="n">vf</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">ini_speed</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">GRAVITY</span> <span class="o">*</span> <span class="n">distance</span><span class="p">)</span>
+
+    <span class="c1"># Display the result</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It will hit the ground at </span><span class="si">%.2f</span><span class="s2"> m/s.&quot;</span> <span class="o">%</span> <span class="n">vf</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">free_fall_speed2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It will hit the ground at 12.37 m/s.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-arithmetic">
+<h2>Basic Arithmetic<a class="headerlink" href="#basic-arithmetic" title="Link to this heading">#</a></h2>
+<p>Create a function that reads two integers, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, from the user. It should compute and display the sum <span class="math notranslate nohighlight">\(x+y\)</span>, difference <span class="math notranslate nohighlight">\(x-y\)</span>, product <span class="math notranslate nohighlight">\(x*y\)</span>, quotient <span class="math notranslate nohighlight">\(x/y\)</span> and the power <span class="math notranslate nohighlight">\(x^y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arithmetic</span><span class="p">():</span>
+    <span class="c1"># Read the input values from the user</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the value of x: &#39;</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the value of y: &#39;</span><span class="p">))</span>
+    <span class="c1"># Compute and display the sum, difference, product, quotient and power</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arithmetic</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112 + 7 is 119
+112 - 7 is 105
+112 * 7 is 784
+112 / 7 is 16.0
+112 ** 7 is 221068140740608
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_intro_to_python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../2_making_decisions/2_making_decisions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Making decisions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#printing-on-screen">Printing on screen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-flexibility">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-area-of-a-rectangle">Finding the area of a rectangle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Adding flexibility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#free-fall">Free fall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-arithmetic">Basic Arithmetic</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
