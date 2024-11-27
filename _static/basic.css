@@ -312,6 +312,11 @@ img.align-default, figure.align-default, .figure.align-default {
 }
 
 /* -- sidebars -------------------------------------------------------------- */
+/* added by MB */
+#pst-primary-sidebar {
+    display: none;
+}
+
 
 div.sidebar,
 aside.sidebar {
